@@ -1,6 +1,8 @@
+import { useTransactions } from "../../hooks/useTransactions";
 import { Container } from "./styles";
 
 export function TransactionTable() {
+  const { transactions } = useTransactions()
   return (
     <Container>
       <table>
@@ -11,18 +13,25 @@ export function TransactionTable() {
           <th>Date</th>
         </thead>
         <tbody>
-          <tr>
-            <td>Freelancer</td>
-            <td className="deposit">$1000</td>
-            <td>Work</td>
-            <td>20/02/2021</td>
-          </tr>
-          <tr>
-            <td>Pay credit card</td>
-            <td className="withdraw">-$500</td>
-            <td>Credit card</td>
-            <td>28/02/2021</td>
-          </tr>
+          {transactions.map(transaction => (
+            <tr key={transaction.id}>
+              <td>{transaction.title}</td>
+              <td 
+                className={transaction.type}
+              >
+                {new Intl.NumberFormat('us', {
+                  style: 'currency',
+                  currency: 'USD'
+                }).format(transaction.amount)}
+              </td>
+              <td>{transaction.category}</td>
+              <td>
+                {new Intl.DateTimeFormat('us').format(
+                  new Date(transaction.createdAt)
+                )}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </Container>

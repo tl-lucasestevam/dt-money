@@ -12,16 +12,11 @@ export const Container = styled.div`
     border-radius: 0.25rem;
     color: var(--text-title);
 
-    &.highlight-background {
-      background: var(--green);
-      color: #fff;
-    }
-
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
     strong {
       display: block;
@@ -31,4 +26,13 @@ export const Container = styled.div`
       line-height: 3rem;
     }
   }
+`
+
+interface TotalCardProps {
+  isNegative: boolean;
+}
+
+export const TotalCard = styled.div<TotalCardProps>`
+  background: ${(props) => props.isNegative ? '#E52E4D' : '#33CC95'} !important;
+  color: #fff !important;
 `
