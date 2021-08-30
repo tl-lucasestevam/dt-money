@@ -1,7 +1,7 @@
 <h1 align="center" title="Podcastr">
 		<img align="center" height="50px" 
 			src="./public/favicon.png" 
-			alt="Podcastr Logo" 
+			alt="Dt Money" 
 		/>
 		Dt Money
 </h1>
@@ -20,7 +20,7 @@
 
 <img align="center" 
 	src="./.github/animation.gif" 
-	alt="Podcastr Logo" 
+	alt="Dt Money Demo" 
 />
 
 <h2 align="center"> 
